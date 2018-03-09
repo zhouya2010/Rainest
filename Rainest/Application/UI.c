@@ -17,13 +17,13 @@
 
 extern volatile uchar copy_fun_flag;
 
-uchar updata_display_flag = 1; //¸üÐÂÏÔÊ¾ 0-²»¸üÐÂ 1-¸üÐÂ
+uchar updata_display_flag = 1; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ 0-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1-ï¿½ï¿½ï¿½ï¿½
 uchar MCDwarning_flag = 1;
 uchar CurrentPage = 0;
 uchar NextPage = 0;
 
 
-extern DevParam devparam;//Éè±¸²ÎÊý
+extern DevParam devparam;//ï¿½è±¸ï¿½ï¿½ï¿½ï¿½
 extern SLink *sch_link;
 extern SLink *spray_link;
 extern RainDelay rain_delay;
@@ -42,10 +42,10 @@ static uchar days_sel_temp = 0;
 static uchar sch_mod_sel_temp = 1;
 
 /************************************************************************/
-/* º¯ÊýÃû£ºmaun_value_show												*/
-/* ¹¦ÄÜ£ºÊÖ¶¯Ä£Ê½ÏÂÏÔÊ¾Ñ¡ÖÐµÄÂ·Êý£¬±»Ñ¡ÖÐºó·´ÏÔ							*/
-/*²ÎÊý£ºÎÞ																*/
-/*·µ»ØÖµ£ºÎÞ															*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½maun_value_show												*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½ï¿½Ö¶ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½Ê¾Ñ¡ï¿½Ðµï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Ðºï¿½ï¿½ï¿½							*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½																*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½															*/
 /************************************************************************/
 void maun_zone_chage(uchar start_zone)
 {
@@ -172,10 +172,10 @@ void show_manu_arrow(uchar select, char icon)
 
 
 /************************************************************************/
-/* º¯ÊýÃû£ºmaun_value_show												*/
-/* ¹¦ÄÜ£ºÊÖ¶¯Ä£Ê½ÏÂÏÔÊ¾Ñ¡ÖÐµÄÂ·Êý£¬±»Ñ¡ÖÐºó·´ÏÔ							*/
-/*²ÎÊý£ºÎÞ																*/
-/*·µ»ØÖµ£ºÎÞ															*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½maun_value_show												*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½ï¿½Ö¶ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½Ê¾Ñ¡ï¿½Ðµï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Ðºï¿½ï¿½ï¿½							*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½																*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½															*/
 /************************************************************************/	
 void maun_value_show(void)
 {
@@ -221,10 +221,10 @@ void AutoModePageDisplay(void)
 
 
 /************************************************************************/
-/* º¯ÊýÃû£ºinvert_valve													*/
-/* ¹¦ÄÜ£º12Â·Ñ¡ÖÐÏÔÊ¾£¨ÉÏÏÂ¸÷6Â·£¬±»Ñ¡ÖÐÔò·´ÏÔ£©						*/
-/*²ÎÊý£ºzero_temp £º±»Ñ¡ÖÐÂ·Êý£¬Î»±íÊ¾									*/
-/*·µ»ØÖµ£ºÎÞ															*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½invert_valve													*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½12Â·Ñ¡ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½6Â·ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½						*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½zero_temp ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Ê¾									*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½															*/
 /************************************************************************/
 void invert_valve( uint zero_temp ) 
 {
@@ -285,7 +285,7 @@ void SchMainDisplay(void)
 void ManuWaterPageDisplay(void)
 {
 	LCD_show_strP(0, 3, PSTR("Manual Watering"));
-	show_warning(); // 16.9.27 µ¥Î»ÏÔÊ¾±»ÒÆÈë´Ëº¯Êý
+	show_warning(); // 16.9.27 ï¿½ï¿½Î»ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½
 	maun_value_show();
 	LCD_show_strP(7, 0, PSTR("RESET"));
 	LCD_show_strP(7, 16, PSTR("START"));
@@ -850,7 +850,7 @@ void RegSmartDevDisplay(void)
 }
 
 /*
-*@page_valves:Ã¿Ò³ÃæÏÔÊ¾Â·Êý¸öÊý£¬·Ö±ðÎª4,8,12¸öÂ·Êý
+*@page_valves:Ã¿Ò³ï¿½ï¿½ï¿½ï¿½Ê¾Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Îª4,8,12ï¿½ï¿½Â·ï¿½ï¿½
 */
 void show_valve(uint16_t page_valves, uint8_t start_valve)
 {
@@ -1001,7 +1001,7 @@ void SchSelValveDisplay(void)
 	uchar start_valve;
 	int page_num = valves/12 * 4;
 	
-	if (page_num > 12) //Ã¿Ò³×î¶àÏÔÊ¾12Â·
+	if (page_num > 12) //Ã¿Ò³ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾12Â·
 	{
 		page_num = 12;
 	}
@@ -1020,7 +1020,7 @@ void SchSelValveDisplay(void)
 	LCD_show_strP(0, 4, PSTR("Schedule Zone"));
 	LCD_show_strP(7, 0, PSTR("DEL"));
 	
-	if(get_weather_flag == GetWeatherOk) //16.4.1 Ìí¼Ó ÔÝ¶¨»ñÈ¡ÌìÆøÍê±Ïºó¸üÐÂÅçÁÜ
+	if(get_weather_flag == GetWeatherOk) //16.4.1 ï¿½ï¿½ï¿½ ï¿½Ý¶ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	LCD_show_strP(7, 5, PSTR("SYNC"));
 	
 	if(copy_fun_flag)
@@ -1470,7 +1470,7 @@ void SpecialFeatDisplay(void)
 	char tem[12] = {0};
 	char res[7] = {0};
 	LCD_show_strP(0, 3, PSTR("Controller Info."));
-	LCD_show_strP(3,4,PSTR("www.nxeco.com"));
+	LCD_show_strP(3,4,PSTR("www.test.com"));
 	LCD_show_strP(5,3,PSTR("S/N:"));
 	LCD_show_string(5,7,devcode);
 	get_vesion_str(res);
@@ -1542,10 +1542,10 @@ void SchSprayLimitDisplay()
 
 
 /************************************************************************/
-/* º¯ÊýÃû£ºUI_Display													*/
-/* ¹¦ÄÜ£ºLCDÏÔÊ¾¿ØÖÆ													*/
-/*²ÎÊý£º	ÎÞ															*/
-/*·µ»ØÖµ£ºÎÞ															*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI_Display													*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½LCDï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½													*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½															*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½															*/
 /************************************************************************/
 void UI_Display( void )
 {

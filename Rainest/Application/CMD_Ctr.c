@@ -9,22 +9,22 @@
 #include "json.h"
 #include <avr/pgmspace.h>
 
-unsigned char net_connect_flag = NetDisConnected;	//ÍøÂçÁ¬½Ó×´Ì¬
-unsigned char user_band_flag = DisBanded;  //ÓÃ»§ÊÇ·ñ°ó¶¨±êÖ¾ 
+unsigned char net_connect_flag = NetDisConnected;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+unsigned char user_band_flag = DisBanded;  //ï¿½Ã»ï¿½ï¿½Ç·ï¿½ó¶¨±ï¿½Ö¾ 
 unsigned char get_devstatus_flag = DisGet;
-unsigned char conn_cloud_flag = DisConnCloud;//ÊÇ·ñÁ¬½ÓÔÆ¶Ë³É¹¦±êÖ¾ 
-unsigned char send_devcodes_flag = DisSendDevcodes;//ÊÇ·ñÉÏ´«Éè±¸ÐòÁÐÂë¸øÔÆ¶Ë³É¹¦
-unsigned char get_time_flag = GetTimeFailed;	//ÊÇ·ñ»ñÈ¡µ½ÔÆ¶ËÊ±¼ä
-unsigned char get_param_flag = DisGetParam ;//ÊÇ·ñ»ñÈ¡²ÎÊý
-unsigned char sentwater_flag = NoDataToSend;//ÊÇ·ñÓÐÓÃË®Á¿ÒªÉÏ´«µ½ÔÆ¶Ë
-unsigned char get_domain_flag = GetDomainOK;//ÂÖÑ¯ÓòÃû±êÖ¾
-unsigned char send_work_value_flag = SentWorkMode; //·¢ËÍÐýÅ¥Ñ¡ÔñÄ£Ê½±êÖ¾
-unsigned char send_spary_status = SentSparyStatus; //·¢ËÍµ±Ç°ÅçÁÜÂ·Êý×´Ì¬±êÖ¾
-unsigned char sent_sensor_flag = SentSensorStatusOk;//·¢ËÍ´«¸ÐÆ÷±êÖ¾
+unsigned char conn_cloud_flag = DisConnCloud;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶Ë³É¹ï¿½ï¿½ï¿½Ö¾ 
+unsigned char send_devcodes_flag = DisSendDevcodes;//ï¿½Ç·ï¿½ï¿½Ï´ï¿½ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶Ë³É¹ï¿½
+unsigned char get_time_flag = GetTimeFailed;	//ï¿½Ç·ï¿½ï¿½È¡ï¿½ï¿½ï¿½Æ¶ï¿½Ê±ï¿½ï¿½
+unsigned char get_param_flag = DisGetParam ;//ï¿½Ç·ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+unsigned char sentwater_flag = NoDataToSend;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½Òªï¿½Ï´ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
+unsigned char get_domain_flag = GetDomainOK;//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
+unsigned char send_work_value_flag = SentWorkMode; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¥Ñ¡ï¿½ï¿½Ä£Ê½ï¿½ï¿½Ö¾
+unsigned char send_spary_status = SentSparyStatus; //ï¿½ï¿½ï¿½Íµï¿½Ç°ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½×´Ì¬ï¿½ï¿½Ö¾
+unsigned char sent_sensor_flag = SentSensorStatusOk;//ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
 unsigned char set_adjust_flag = SetAdjustOK;
 unsigned char get_adjust_flag = DisGetAdjust;
 unsigned char get_weather_flag = NoGetWeather;
-unsigned char set_raindelay_flag = SetRainDelayOK;//ÉÏ´«ÑÓ³ÙÅçÁÜ±êÖ¾
+unsigned char set_raindelay_flag = SetRainDelayOK;//ï¿½Ï´ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½Ü±ï¿½Ö¾
 unsigned char set_sch_flag = SetSchOK;
 unsigned char set_del_zone_flag = SetSchOK;
 unsigned char get_schedule_flag = GetScheduleOK;
@@ -43,19 +43,14 @@ static unsigned char content_flag_tmp = 0;
 
 extern SLink * water_used_link;
 
-// PROGMEM const  char  mainserve[] = "www.rainmq.com";
-// PROGMEM const  char  mainserve[] = "139.162.2.26";
-//Test Serve
-//PROGMEM const  char  mainserve[] = "45.33.46.130";
-
 #define ConnectLimit	10
 
 
 /************************************************************************/
-/* º¯ÊýÃû£º	UserBand_CMD												*/
-/* ¹¦ÄÜ£ºÓÃ»§¹ØÁªÉè±¸·ÃÎÊ½Ó¿ÚÁ÷³Ì¿ØÖÆ									*/
-/*²ÎÊý£º	ÎÞ															*/
-/*·µ»ØÖµ£ºÎÞ															*/		
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	UserBand_CMD												*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è±¸ï¿½ï¿½ï¿½Ê½Ó¿ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½									*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½															*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½															*/		
 /************************************************************************/
 void user_band_cmd( void )
 {
@@ -71,7 +66,7 @@ void user_band_cmd( void )
 	{
 		get_cmd(ReturnExecuted);
 	}
-	else if(NeedReturnCid == return_cid_flag)//16.8.17 Ôö¼Ó·Ç°ó¶¨×´Ì¬·µ»Øcid
+	else if(NeedReturnCid == return_cid_flag)//16.8.17 ï¿½ï¿½ï¿½Ó·Ç°ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½cid
 	{
 		get_cmd(ReturnCid);
 	}
@@ -91,10 +86,10 @@ void user_band_cmd( void )
 }
 
 /************************************************************************/
-/* º¯ÊýÃû£º	AUTO_CMD													*/
-/* ¹¦ÄÜ£º		×Ô¶¯Ä£Ê½ÏÂ·ÃÎÊÔÆ¶Ë½Ó¿ÚÁ÷³Ì¿ØÖÆ							*/
-/*²ÎÊý£º	ÎÞ															*/
-/*·µ»ØÖµ£ºÎÞ															*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	AUTO_CMD													*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½		ï¿½Ô¶ï¿½Ä£Ê½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Æ¶Ë½Ó¿ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½							*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½															*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½															*/
 /************************************************************************/
 void auto_cmd(void)
 {
@@ -113,7 +108,7 @@ void auto_cmd(void)
 		}		
 	}
 	
-	if(conn_cloud_flag == ConnCloudOk)   //2016.9.16  conncloudÍ¨¹ýºó£¬ÒÔÏÂ½Ó¿Ú²ÅÄÜµ÷ÓÃ
+	if(conn_cloud_flag == ConnCloudOk)   //2016.9.16  conncloudÍ¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½Ó¿Ú²ï¿½ï¿½Üµï¿½ï¿½ï¿½
 	{
 		sent_cloud_count = 0;
 		
@@ -229,15 +224,15 @@ void auto_cmd(void)
 // }
 
 /************************************************************************/
-/* º¯ÊýÃû£º		CMD_Ctr													*/
-/* ¹¦ÄÜ£º        ¿ØÖÆ·ÃÎÊÔÆ¶ËÖ¸ÁîÁ÷³Ì¡£·ÖÎªÈýÖÖÄ£Ê½£º1¡¢Î´¹ØÁªÉè±¸×´Ì¬	*/
-/* 						2¡¢AUTOÄ£Ê½	3¡¢ÊÖ¶¯Ä£Ê½							*/
-/*²ÎÊý£º	ÎÞ															*/
-/*·µ»ØÖµ£ºÎÞ                											*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		CMD_Ctr													*/
+/* ï¿½ï¿½ï¿½Ü£ï¿½        ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ì¡ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½1ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½è±¸×´Ì¬	*/
+/* 						2ï¿½ï¿½AUTOÄ£Ê½	3ï¿½ï¿½ï¿½Ö¶ï¿½Ä£Ê½							*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½															*/
+/*ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½                											*/
 /************************************************************************/
 void cmd_ctr( void )
 {
-	if (UserBandOk != user_band_flag)	//Î´°ó¶¨×´Ì¬
+	if (UserBandOk != user_band_flag)	//Î´ï¿½ï¿½×´Ì¬
 	{
 		user_band_cmd();
 	}

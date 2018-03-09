@@ -9,7 +9,7 @@
 #include "typedef.h"
 #include <stdio.h>
 
-const char mainserver[] = "www.rainmq.com";
+const char mainserver[] = "www.test.com";
 uint16_t mq_port = 1883;
 
 MQTTPacket_connectData mq_connect_data = MQTTPacket_connectData_initializer;
@@ -25,8 +25,8 @@ void connect_data_init(void)
 	mq_connect_data.clientID.cstring = devcode;
 	mq_connect_data.keepAliveInterval = 200;
 	mq_connect_data.cleansession = 1;
-	mq_connect_data.username.cstring = "NxEco@2016";
-	mq_connect_data.password.cstring = "#@iHyX4y+GPQ";
+	mq_connect_data.username.cstring = "test";
+	mq_connect_data.password.cstring = "test";
 }
 
 void sub_topic_init(void)
