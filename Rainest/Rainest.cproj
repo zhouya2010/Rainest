@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.1</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ProjectGuid>{50f60179-af86-432a-8ec4-0ca9e781cd8a}</ProjectGuid>
+    <avrdevice>ATmega1284P</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>Rainest</AssemblyName>
+    <Name>Rainest</Name>
+    <RootNamespace>Rainest</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <OverrideVtorValue>
+    </OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.3.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../Application</Value>
+            <Value>../BUTTON</Value>
+            <Value>../DELAY</Value>
+            <Value>../DHCP</Value>
+            <Value>../ENC28J60</Value>
+            <Value>../HC595N</Value>
+            <Value>../LCD</Value>
+            <Value>../RTC</Value>
+            <Value>../UIP</Value>
+            <Value>../USART0</Value>
+            <Value>../WEBCLIENT</Value>
+            <Value>../WIFI</Value>
+            <Value>../MQTT-CLIENT</Value>
+            <Value>../MQTT</Value>
+            <Value>../UIP-CLIENT</Value>
+            <Value>../Cjson</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../LCD</Value>
+            <Value>../UIP</Value>
+            <Value>../ENC28J60</Value>
+            <Value>../DHCP</Value>
+            <Value>../HC595N</Value>
+            <Value>../DELAY</Value>
+            <Value>../BUTTON</Value>
+            <Value>../RTC</Value>
+            <Value>../USART0</Value>
+            <Value>../Application</Value>
+            <Value>../Cjson</Value>
+            <Value>../MQTT</Value>
+            <Value>../MQTT-CLIENT</Value>
+            <Value>../UIP-CLIENT</Value>
+            <Value>../WIFI</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Application\btn_ctr.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\btn_ctr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\CMD_Ctr.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\CMD_Ctr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\data_rw.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\data_rw.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\event_handle.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\event_handle.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\json.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\json.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\pgm_string.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\pgm_string.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\schedule_execute.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\schedule_execute.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\typedef.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\UI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application\UI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="BUTTON\button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="BUTTON\button.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Cjson\cJSON.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Cjson\cJSON.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="DHCP\dhcpc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="DHCP\dhcpc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ENC28J60\enc28j60.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ENC28J60\enc28j60.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ENC28J60\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ENC28J60\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HC595N\exboard.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HC595N\exboard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HC595N\HC595N.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HC595N\HC595N.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-client.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-data.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-data.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-packet.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-packet.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-unpack.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\mqtt-unpack.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\transport.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT-CLIENT\transport.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTConnect.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTConnectClient.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTConnectServer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTDeserializePublish.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTFormat.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTFormat.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTPacket.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTPacket.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTPublish.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTSerializePublish.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTSubscribe.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTSubscribeClient.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTSubscribeServer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTUnsubscribe.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTUnsubscribeClient.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\MQTTUnsubscribeServer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MQTT\StackTrace.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTC\IIC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTC\IIC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTC\RTC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTC\RTC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP-CLIENT\uip-client.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP-CLIENT\uip-client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP-CLIENT\webclient-strings.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP-CLIENT\webclient-strings.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP-CLIENT\webclient.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP-CLIENT\webclient.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\lc-addrlabels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\lc-switch.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\lc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\pt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\resolv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\resolv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\tapdev.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\tapdev.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uip-conf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uip.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uip.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uiplib.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uiplib.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uipopt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uip_arch.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uip_arp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UIP\uip_arp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\ring_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\rw_buffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\rw_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\USART0.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\USART0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\usart1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USART0\usart1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WIFI\wifi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WIFI\wifi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WIFI\wifi_receive.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WIFI\wifi_receive.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application" />
+    <Folder Include="LCD" />
+    <Folder Include="ENC28J60" />
+    <Folder Include="DHCP" />
+    <Folder Include="HC595N" />
+    <Folder Include="BUTTON" />
+    <Folder Include="Cjson" />
+    <Folder Include="MQTT" />
+    <Folder Include="MQTT-CLIENT" />
+    <Folder Include="USART0" />
+    <Folder Include="WIFI" />
+    <Folder Include="UIP-CLIENT" />
+    <Folder Include="UIP" />
+    <Folder Include="RTC" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
